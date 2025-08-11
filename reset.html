@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="uk">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset CSS - CSS Демонстрації</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+  </head>
+
+  <body>
+    <nav>
+      <a href="index.html">Блоки та інлайнові елементи</a> |
+      <a href="normalize.html">Normalize CSS</a> |
+      <a href="reset.html">Reset CSS</a> |
+      <a href="display.html">Display & Box-sizing</a> |
+      <a href="float-clear.html">Float & Clear</a> |
+      <a href="overflow.html">Overflow</a> |
+      <a href="positioning.html">Positioning</a>
+    </nav>
+    
+    <main>
+      <h1>Reset CSS</h1>
+      
+      <section class="content-section">
+        <h2>Що таке CSS Reset?</h2>
+        <p><strong>CSS Reset</strong> видаляє всі стилі браузера за замовчуванням, надаючи чисту основу для створення власних стилів.</p>
+        
+        <div class="warning">
+          CSS Reset видаляє ВСІ стилі, включаючи корисні. Це означає, що вам потрібно буде стилізувати кожен елемент самостійно.
+        </div>
+        
+        <h2>Основні принципи</h2>
+        <ul>
+          <li>Скидає всі margin та padding до 0</li>
+          <li>Видаляє стилі списків</li>
+          <li>Скидає стилі посилань</li>
+          <li>Уніфікує шрифти та розміри</li>
+        </ul>
+        
+        <h2>Приклад reset коду</h2>
+        <div class="code-example">
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+        </div>
+        
+        <h2>Порівняння з Normalize</h2>
+        <div class="comparison">
+          <div class="compare-item">
+            <h3>CSS Reset</h3>
+            <ul>
+              <li>❌ Видаляє ВСІ стилі</li>
+              <li>✅ Чиста основа</li>
+              <li>❌ Потребує більше роботи</li>
+            </ul>
+          </div>
+          <div class="compare-item">
+            <h3>Normalize CSS</h3>
+            <ul>
+              <li>✅ Зберігає корисні стилі</li>
+              <li>✅ Менше роботи</li>
+              <li>✅ Краща семантика</li>
+            </ul>
+          </div>
+        </div>
+        
+        <div class="tip">
+          Вибирайте між Reset та Normalize залежно від ваших потреб. Для швидкого прототипування краще Normalize, для повного контролю - Reset.
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>🎓 CSS Демонстрації - Навчальний проект</p>
+      <div class="footer-links">
+        <a href="https://developer.mozilla.org/uk/docs/Web/CSS" target="_blank">MDN CSS</a>
+        <a href="https://www.w3schools.com/css/" target="_blank">W3Schools</a>
+        <a href="https://css-tricks.com/" target="_blank">CSS-Tricks</a>
+      </div>
+      <p>© 2024 - Створено для навчання CSS</p>
+    </footer>
+
+    <div class="progress-bar" id="progressBar"></div>
+    <div class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</div>
+
+    <script>
+      window.addEventListener('scroll', function() {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        document.getElementById('progressBar').style.width = scrolled + '%';
+        
+        const backToTop = document.getElementById('backToTop');
+        if (winScroll > 300) {
+          backToTop.classList.add('show');
+        } else {
+          backToTop.classList.remove('show');
+        }
+      });
+
+      function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    </script>
+  </body>
+
+</html>

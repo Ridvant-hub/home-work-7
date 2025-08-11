@@ -4,7 +4,8 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Overflow - CSS Демонстрації</title>
+    <title>Normalize CSS - CSS Демонстрації</title>
+    <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/style.css">
   </head>
 
@@ -20,28 +21,46 @@
     </nav>
     
     <main>
-      <h1>Overflow</h1>
+      <h1>Normalize CSS</h1>
       
       <section class="content-section">
-        <h2>Overflow: auto (з прокруткою)</h2>
-        <div class="overflow-box">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+        <h2>Що таке Normalize.css?</h2>
+        <p><strong>Normalize.css</strong> робить стилі більш уніфікованими в різних браузерах, зберігаючи корисні налаштування за замовчуванням.</p>
+        
+        <div class="tip">
+          Normalize.css зберігає корисні стилі за замовчуванням, на відміну від CSS Reset, який видаляє їх повністю.
         </div>
         
-        <h2>Overflow: hidden</h2>
-        <div class="overflow-hidden">
-          Цей текст буде обрізаний, якщо він не поміститься в контейнер. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        <h2>Основні принципи</h2>
+        <ul>
+          <li>Зберігає корисні стилі за замовчуванням</li>
+          <li>Нормалізує стилі для широкого спектру елементів</li>
+          <li>Виправляє помилки та несумісності браузерів</li>
+          <li>Пояснює код детальними коментарями</li>
+        </ul>
+        
+        <h2>Приклад нормалізації</h2>
+        <div class="code-example">
+html {
+  line-height: 1.15; /* Покращує читабельність */
+  -webkit-text-size-adjust: 100%; /* iOS Safari */
+}
+
+body {
+  margin: 0; /* Видаляє стандартні відступи */
+}
         </div>
         
-        <h2>Overflow: visible (за замовчуванням)</h2>
-        <div class="overflow-visible">
-          Цей текст може виходити за межі контейнера. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-        </div>
+        <h2>Демонстрація елементів</h2>
+        <h3>Заголовок H3</h3>
+        <h4>Заголовок H4</h4>
+        <p>Звичайний параграф тексту з <strong>жирним текстом</strong> та <em>курсивом</em>.</p>
+        <blockquote>Це цитата, яка має особливе форматування в normalize.css</blockquote>
         
-        <h2>Overflow: scroll</h2>
-        <div class="overflow-scroll">
-          Завжди показувати смуги прокрутки. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        </div>
+        <form style="margin: 20px 0;">
+          <input type="text" placeholder="Поле вводу" style="margin: 5px; padding: 8px;">
+          <button type="button" style="margin: 5px; padding: 8px 16px;">Кнопка</button>
+        </form>
       </section>
     </main>
 

@@ -4,13 +4,13 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Float & Clear</title>
+    <title>Float & Clear - CSS Демонстрації</title>
     <link rel="stylesheet" href="css/style.css">
   </head>
 
   <body>
     <nav>
-      <a href="index.html">Блоки та инлайновые элементы</a> |
+      <a href="index.html">Блоки та інлайнові елементи</a> |
       <a href="normalize.html">Normalize CSS</a> |
       <a href="reset.html">Reset CSS</a> |
       <a href="display.html">Display & Box-sizing</a> |
@@ -18,10 +18,72 @@
       <a href="overflow.html">Overflow</a> |
       <a href="positioning.html">Positioning</a>
     </nav>
-    <h1>Float та Clear</h1>
-    <div class="float-left">Блок 1 (float: left)</div>
-    <div class="float-left">Блок 2 (float: left)</div>
-    <div class="clear-both">Блок после clear: both</div>
+    
+    <main>
+      <h1>Float та Clear</h1>
+      
+      <section class="content-section">
+        <h2>Float: left</h2>
+        <p>Властивість float дозволяє елементам "плавати" ліворуч або праворуч:</p>
+        <div class="float-demo">
+          <div class="float-left">Float: left</div>
+          <div class="float-left">Float: left</div>
+          <p>Цей текст обтікає навколо плаваючих елементів. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+        
+        <h2>Clear: both</h2>
+        <p>Властивість clear зупиняє обтікання:</p>
+        <div class="clear-both">
+          Clear: both - цей елемент не обтікає плаваючі елементи
+        </div>
+        
+        <h2>Проблеми з Float</h2>
+        <div class="float-problem">
+          <div class="float-left">Плаваючий елемент</div>
+          <p><strong>Проблема:</strong> Батьківський контейнер може "схлопнутися" якщо всі дочірні елементи плавають.</p>
+        </div>
+        
+        <h2>Сучасна альтернатива: Flexbox</h2>
+        <div class="block-flex">
+          <div>Flex елемент 1</div>
+          <div>Flex елемент 2</div>
+          <div>Flex елемент 3</div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>🎓 CSS Демонстрації - Навчальний проект</p>
+      <div class="footer-links">
+        <a href="https://developer.mozilla.org/uk/docs/Web/CSS" target="_blank">MDN CSS</a>
+        <a href="https://www.w3schools.com/css/" target="_blank">W3Schools</a>
+        <a href="https://css-tricks.com/" target="_blank">CSS-Tricks</a>
+      </div>
+      <p>© 2024 - Створено для навчання CSS</p>
+    </footer>
+
+    <div class="progress-bar" id="progressBar"></div>
+    <div class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</div>
+
+    <script>
+      window.addEventListener('scroll', function() {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        document.getElementById('progressBar').style.width = scrolled + '%';
+        
+        const backToTop = document.getElementById('backToTop');
+        if (winScroll > 300) {
+          backToTop.classList.add('show');
+        } else {
+          backToTop.classList.remove('show');
+        }
+      });
+
+      function scrollToTop() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    </script>
   </body>
 
 </html>

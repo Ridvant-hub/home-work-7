@@ -4,13 +4,13 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Display & Box-sizing</title>
+    <title>Display & Box-sizing - CSS Демонстрації</title>
     <link rel="stylesheet" href="css/style.css">
   </head>
 
   <body>
     <nav>
-      <a href="index.html">Блоки та инлайновые элементы</a> |
+      <a href="index.html">Блоки та інлайнові елементи</a> |
       <a href="normalize.html">Normalize CSS</a> |
       <a href="reset.html">Reset CSS</a> |
       <a href="display.html">Display & Box-sizing</a> |
@@ -18,9 +18,81 @@
       <a href="overflow.html">Overflow</a> |
       <a href="positioning.html">Positioning</a>
     </nav>
-    <h1>Display та Box-sizing</h1>
-    <div class="block block-inline">inline-block</div>
-    <div class="block block-flex">flex container</div>
+    
+    <main>
+      <h1>Display та Box-sizing</h1>
+      
+      <section class="content-section">
+        <h2>Display: block</h2>
+        <div class="block display-demo">
+          Це блочний елемент (display: block). Він займає всю ширину батьківського елемента.
+        </div>
+        
+        <h2>Display: inline</h2>
+        <p>Це текст з <span class="inline display-demo">інлайновим елементом</span> всередині. 
+        Інлайнові елементи розташовуються в одному рядку.</p>
+        
+        <h2>Display: inline-block</h2>
+        <div class="demo-container">
+          <div class="block-inline">Блок 1</div>
+          <div class="block-inline">Блок 2</div>
+          <div class="block-inline">Блок 3</div>
+        </div>
+        
+        <h2>Display: flex</h2>
+        <div class="block-flex">
+          <div>Flex елемент 1</div>
+          <div>Flex елемент 2</div>
+          <div>Flex елемент 3</div>
+        </div>
+        
+        <h2>Display: grid</h2>
+        <div class="grid-container">
+          <div class="grid-item">1</div>
+          <div class="grid-item">2</div>
+          <div class="grid-item">3</div>
+          <div class="grid-item">4</div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>🎓 CSS Демонстрації - Навчальний проект</p>
+      <div class="footer-links">
+        <a href="https://developer.mozilla.org/uk/docs/Web/CSS" target="_blank">MDN CSS</a>
+        <a href="https://www.w3schools.com/css/" target="_blank">W3Schools</a>
+        <a href="https://css-tricks.com/" target="_blank">CSS-Tricks</a>
+      </div>
+      <p>© 2024 - Створено для навчання CSS</p>
+    </footer>
+
+    <div class="progress-bar" id="progressBar"></div>
+    <div class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</div>
+
+    <script>
+      // Progress bar
+      window.addEventListener('scroll', function() {
+        const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+        const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+        const scrolled = (winScroll / height) * 100;
+        document.getElementById('progressBar').style.width = scrolled + '%';
+        
+        // Back to top button
+        const backToTop = document.getElementById('backToTop');
+        if (winScroll > 300) {
+          backToTop.classList.add('show');
+        } else {
+          backToTop.classList.remove('show');
+        }
+      });
+
+      function scrollToTop() {
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+      }
+    </script>
   </body>
 
 </html>
