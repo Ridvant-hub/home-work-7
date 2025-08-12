@@ -10,29 +10,192 @@
 
   <body>
     <nav>
-      <a href="index.html">Блоки</a> |
-      <a href="normalize.html">Normalize</a> |
-      <a href="reset.html">Reset</a> |
-      <a href="display.html">Display</a> |
-      <a href="float-clear.html">Float</a> |
-      <a href="overflow.html">Overflow</a> |
-      <a href="positioning.html">Positioning</a>
+      <a href="index.html">🏠 Главная</a>
+      <a href="display.html">📱 Display</a>
+      <a href="float-clear.html">🔄 Float</a>
+      <a href="overflow.html">📦 Overflow</a>
+      <a href="positioning.html">📍 Positioning</a>
+      <a href="project/normalize.html">🔧 Normalize</a>
+      <a href="project/reset.html">⚡ Reset</a>
     </nav>
-    <hr>
 
-    <h1>Позиционирование</h1>
+    <main class="main-content">
+      <section class="intro-section">
+        <h1>📍 Positioning</h1>
+        <p>Свойство <code>position</code> определяет метод позиционирования элемента. Существует пять основных значений: static, relative, absolute, fixed и sticky.</p>
+      </section>
 
-    <div class="pos-static">Lorem ipsum dolor sit amet.</div>
-      <div class="pos-absolute">Lorem ipsum dolor sit amet.</div>
+      <section class="demo-section">
+        <h2>Position: Static (по умолчанию)</h2>
+        <p>Элементы располагаются в обычном потоке документа. Свойства top, right, bottom, left игнорируются.</p>
+        <div class="position-demo">
+          <div class="pos-static-demo">Position: Static</div>
+          <div class="pos-static-demo">Еще один static элемент</div>
+        </div>
+      </section>
 
-    <div class="pos-sticky">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Optio, assumenda.</div>
+      <section class="demo-section">
+        <h2>Position: Relative</h2>
+        <p>Элемент смещается относительно своей нормальной позиции, но место в потоке сохраняется.</p>
+        <div class="position-demo">
+          <div class="pos-static-demo">Обычный элемент</div>
+          <div class="pos-relative-demo">Position: Relative (смещен)</div>
+          <div class="pos-static-demo">Следующий элемент</div>
+        </div>
+      </section>
 
-    <div style="height: 1200px; background: linear-gradient(white, #ddd);">
-      <p style="padding:20px;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit ducimus ut, in totam distinctio eos corporis laudantium sequi, aliquid odit nisi.</p>
+      <section class="demo-section">
+        <h2>Position: Absolute</h2>
+        <p>Элемент извлекается из потока и позиционируется относительно ближайшего позиционированного предка.</p>
+        <div class="position-demo relative-container">
+          <div class="pos-static-demo">Обычный элемент</div>
+          <div class="pos-absolute-demo">Position: Absolute</div>
+          <div class="pos-static-demo">Еще элемент</div>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>Position: Fixed</h2>
+        <p>Элемент позиционируется относительно окна браузера и остается на месте при прокрутке.</p>
+        <div class="position-demo">
+          <p>Элемент с position: fixed виден в правом нижнем углу экрана. Он останется там при прокрутке страницы.</p>
+          <div class="pos-fixed-demo">Position: Fixed</div>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>Position: Sticky</h2>
+        <p>Элемент ведет себя как relative до достижения определенной позиции, затем становится fixed.</p>
+        <div class="sticky-container">
+          <div class="pos-sticky-demo">Sticky Header</div>
+          <div class="sticky-content">
+            <p>Прокрутите страницу, чтобы увидеть sticky поведение заголовка выше.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, voluptatum?</p>
+            <p>Ipsum, quam. Quod, quidem. Quisquam, voluptatibus.</p>
+            <p>Quisquam, voluptatibus. Quisquam, voluptatibus.</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            <p>Perspiciatis, quibusdam. Quisquam, voluptatibus.</p>
+            <p>Lorem ipsum dolor sit amet.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>Z-Index</h2>
+        <p>Свойство z-index управляет порядком наложения позиционированных элементов.</p>
+        <div class="z-index-demo">
+          <div class="z-box z-1">Z-index: 1</div>
+          <div class="z-box z-3">Z-index: 3</div>
+          <div class="z-box z-2">Z-index: 2</div>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>Интерактивная демонстрация</h2>
+        <p>Попробуйте разные значения position:</p>
+        <div class="interactive-position">
+          <div class="position-controls">
+            <button onclick="changePosition('static')" class="demo-btn">Static</button>
+            <button onclick="changePosition('relative')" class="demo-btn">Relative</button>
+            <button onclick="changePosition('absolute')" class="demo-btn">Absolute</button>
+            <button onclick="changePosition('fixed')" class="demo-btn">Fixed</button>
+            <button onclick="changePosition('sticky')" class="demo-btn">Sticky</button>
+          </div>
+          <div class="position-demo-container">
+            <div class="demo-element-pos">Элемент 1</div>
+            <div class="demo-element-target" id="targetElement">Целевой элемент</div>
+            <div class="demo-element-pos">Элемент 3</div>
+          </div>
+          <div class="current-position" id="currentPosition">Текущее значение: static</div>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>Практические примеры</h2>
+        <div class="practical-position">
+          <div class="tooltip-example">
+            <h3>Tooltip с Absolute</h3>
+                          <button class="tooltip-trigger" onmouseover="showTooltip()" onmouseout="hideTooltip()">
+                Наведите на меня
+              </button>
+              <div class="tooltip-content" id="tooltip">Это tooltip с position: absolute</div>
+          </div>
+          
+          <div class="modal-backdrop-example">
+            <h3>Модальное окно</h3>
+            <button onclick="showModal()" class="demo-btn">Открыть модальное окно</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Длинный контент для демонстрации прокрутки -->
+      <div class="scroll-content">
+        <h2>Прокрутите страницу</h2>
+        <p>Этот контент добавлен для демонстрации поведения fixed и sticky элементов при прокрутке.</p>
+        <div style="height: 800px; background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%); padding: 20px; border-radius: 10px;">
+          <p style="padding: 20px;">Большой блок контента для прокрутки...</p>
+          <p style="padding: 20px;">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <p style="padding: 20px;">Fugit ducimus ut, in totam distinctio eos corporis laudantium sequi.</p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Модальное окно -->
+    <div class="modal-overlay" id="modalOverlay" onclick="hideModal()">
+      <div class="modal-window" onclick="event.stopPropagation()">
+        <h3>Модальное окно</h3>
+        <p>Это модальное окно использует position: fixed для центрирования.</p>
+        <button onclick="hideModal()" class="demo-btn reset">Закрыть</button>
+      </div>
     </div>
 
-    <div class="pos-fixed">Lorem ipsum dolor sit.</div>
-
+    <script>
+      function changePosition(positionValue) {
+        const element = document.getElementById('targetElement');
+        const current = document.getElementById('currentPosition');
+        
+        element.style.position = positionValue;
+        
+        // Сброс всех позиций
+        element.style.top = '';
+        element.style.left = '';
+        element.style.right = '';
+        element.style.bottom = '';
+        
+        // Установка позиций в зависимости от типа
+        if (positionValue === 'relative') {
+          element.style.top = '20px';
+          element.style.left = '20px';
+        } else if (positionValue === 'absolute') {
+          element.style.top = '10px';
+          element.style.right = '10px';
+        } else if (positionValue === 'fixed') {
+          element.style.top = '50%';
+          element.style.left = '50%';
+          element.style.transform = 'translate(-50%, -50%)';
+        } else if (positionValue === 'sticky') {
+          element.style.top = '0';
+        }
+        
+        current.textContent = `Текущее значение: ${positionValue}`;
+      }
+      
+      function showTooltip() {
+        document.getElementById('tooltip').style.display = 'block';
+      }
+      
+      function hideTooltip() {
+        document.getElementById('tooltip').style.display = 'none';
+      }
+      
+      function showModal() {
+        document.getElementById('modalOverlay').style.display = 'flex';
+      }
+      
+      function hideModal() {
+        document.getElementById('modalOverlay').style.display = 'none';
+      }
+    </script>
   </body>
 
 </html>

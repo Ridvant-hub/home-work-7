@@ -1,26 +1,146 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="zxx">
 
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Блоки та инлайновые элементы</title>
+    <title>CSS Демонстрационный Сайт - Изучайте CSS на практике</title>
     <link rel="stylesheet" href="css/style.css">
   </head>
 
   <body>
     <nav>
-      <a href="index.html">Блоки та инлайновые элементы</a> |
-      <a href="normalize.html">Normalize CSS</a> |
-      <a href="reset.html">Reset CSS</a> |
-      <a href="display.html">Display & Box-sizing</a> |
-      <a href="float-clear.html">Float & Clear</a> |
-      <a href="overflow.html">Overflow</a> |
-      <a href="positioning.html">Positioning</a>
+      <a href="index.html">🏠 Главная</a>
+      <a href="display.html">📱 Display</a>
+      <a href="float-clear.html">🔄 Float</a>
+      <a href="overflow.html">📦 Overflow</a>
+      <a href="positioning.html">📍 Positioning</a>
+      <a href="project/normalize.html">🔧 Normalize</a>
+      <a href="project/reset.html">⚡ Reset</a>
     </nav>
-    <h1>Блоки та инлайновые элементы</h1>
-    <div class="block">Инлайновый текст внутри блочного элемента</div>
-    <div class="block">Еще один блок с инлайновым элементом</div>
+
+    <header class="hero">
+      <h1>CSS Демонстрационный Сайт</h1>
+      <p class="hero-subtitle">Изучайте CSS свойства на практических примерах</p>
+      <div class="hero-features">
+        <div class="feature-card">
+          <h3>🎨 Современный дизайн</h3>
+          <p>Красивые анимации и переходы</p>
+        </div>
+        <div class="feature-card">
+          <h3>📱 Адаптивность</h3>
+          <p>Отлично выглядит на всех устройствах</p>
+        </div>
+        <div class="feature-card">
+          <h3>🔧 Практические примеры</h3>
+          <p>Реальные примеры использования CSS</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="main-content">
+      <section class="intro-section">
+        <h2>Добро пожаловать!</h2>
+        <p>Этот сайт создан для демонстрации различных CSS свойств и техник. Здесь вы найдете практические примеры работы с:</p>
+        
+        <div class="topics-grid">
+          <div class="topic-card">
+            <div class="topic-icon">📱</div>
+            <h3>Display & Box-sizing</h3>
+            <p>Изучите различные значения свойства display и как они влияют на элементы</p>
+            <a href="display.html" class="btn">Перейти</a>
+          </div>
+          
+          <div class="topic-card">
+            <div class="topic-icon">🔄</div>
+            <h3>Float & Clear</h3>
+            <p>Понимание работы с плавающими элементами и их очисткой</p>
+            <a href="float-clear.html" class="btn">Перейти</a>
+          </div>
+          
+          <div class="topic-card">
+            <div class="topic-icon">📦</div>
+            <h3>Overflow</h3>
+            <p>Управление переполнением контента в контейнерах</p>
+            <a href="overflow.html" class="btn">Перейти</a>
+          </div>
+          
+          <div class="topic-card">
+            <div class="topic-icon">📍</div>
+            <h3>Positioning</h3>
+            <p>Различные способы позиционирования элементов на странице</p>
+            <a href="positioning.html" class="btn">Перейти</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>Интерактивные примеры</h2>
+        <div class="interactive-demo">
+          <div class="demo-block block-example" id="demoBlock">
+            <span class="demo-text">Наведите на меня!</span>
+          </div>
+          <div class="demo-controls">
+            <button onclick="toggleDisplay()" class="demo-btn">Изменить Display</button>
+            <button onclick="togglePosition()" class="demo-btn">Изменить Position</button>
+            <button onclick="resetDemo()" class="demo-btn reset">Сброс</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>&copy; 2024 CSS Демонстрационный Сайт. Создано для обучения.</p>
+    </footer>
+
+    <script>
+      let displayState = 0;
+      let positionState = 0;
+      
+      function toggleDisplay() {
+        const block = document.getElementById('demoBlock');
+        const displays = ['block', 'inline-block', 'flex', 'grid'];
+        displayState = (displayState + 1) % displays.length;
+        block.style.display = displays[displayState];
+        block.querySelector('.demo-text').textContent = `Display: ${displays[displayState]}`;
+      }
+      
+      function togglePosition() {
+        const block = document.getElementById('demoBlock');
+        const positions = ['static', 'relative', 'absolute', 'fixed'];
+        positionState = (positionState + 1) % positions.length;
+        block.style.position = positions[positionState];
+        
+        if (positions[positionState] === 'relative') {
+          block.style.top = '20px';
+          block.style.left = '20px';
+        } else if (positions[positionState] === 'absolute') {
+          block.style.top = '50px';
+          block.style.right = '50px';
+        } else if (positions[positionState] === 'fixed') {
+          block.style.top = '100px';
+          block.style.right = '100px';
+        } else {
+          block.style.top = '';
+          block.style.left = '';
+          block.style.right = '';
+        }
+        
+        block.querySelector('.demo-text').textContent = `Position: ${positions[positionState]}`;
+      }
+      
+      function resetDemo() {
+        const block = document.getElementById('demoBlock');
+        block.style.display = '';
+        block.style.position = '';
+        block.style.top = '';
+        block.style.left = '';
+        block.style.right = '';
+        block.querySelector('.demo-text').textContent = 'Наведите на меня!';
+        displayState = 0;
+        positionState = 0;
+      }
+    </script>
   </body>
 
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="zxx">
 
   <head>
     <meta charset="UTF-8">
@@ -10,16 +10,134 @@
 
   <body>
     <nav>
-      <a href="index.html">Блоки та инлайновые элементы</a> |
-      <a href="normalize.html">Normalize CSS</a> |
-      <a href="reset.html">Reset CSS</a> |
-      <a href="display.html">Display & Box-sizing</a> |
-      <a href="float-clear.html">Float & Clear</a> |
-      <a href="overflow.html">Overflow</a> |
-      <a href="positioning.html">Positioning</a>
+      <a href="index.html">🏠 Главная</a>
+      <a href="display.html">📱 Display</a>
+      <a href="float-clear.html">🔄 Float</a>
+      <a href="overflow.html">📦 Overflow</a>
+      <a href="positioning.html">📍 Positioning</a>
+      <a href="project/normalize.html">🔧 Normalize</a>
+      <a href="project/reset.html">⚡ Reset</a>
     </nav>
-    <h1>Overflow</h1>
-    <div class="overflow-box">Lorem ipsum dolor sit amet.</div>
+
+    <main class="main-content">
+      <section class="intro-section">
+        <h1>📦 Overflow</h1>
+        <p>Свойство <code>overflow</code> определяет, что происходит с контентом, который не помещается в контейнер. Это важно для создания прокручиваемых областей и управления переполнением.</p>
+      </section>
+
+      <section class="demo-section">
+        <h2>Overflow: Visible (по умолчанию)</h2>
+        <p>Контент выходит за границы контейнера и остается видимым.</p>
+        <div class="overflow-demo">
+          <div class="overflow-visible">
+            <p>Этот длинный текст выходит за границы контейнера. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, voluptatum? Ipsum, quam. Quod, quidem. Quisquam, voluptatibus. Quisquam, voluptatibus. Quisquam, voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>Overflow: Hidden</h2>
+        <p>Контент, который не помещается, обрезается и становится невидимым.</p>
+        <div class="overflow-demo">
+          <div class="overflow-hidden">
+            <p>Этот длинный текст будет обрезан. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, voluptatum? Ipsum, quam. Quod, quidem. Quisquam, voluptatibus. Quisquam, voluptatibus. Quisquam, voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>Overflow: Scroll</h2>
+        <p>Всегда показываются полосы прокрутки, даже если контент помещается.</p>
+        <div class="overflow-demo">
+          <div class="overflow-scroll">
+            <p>Этот контент можно прокручивать. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, voluptatum? Ipsum, quam. Quod, quidem. Quisquam, voluptatibus. Quisquam, voluptatibus. Quisquam, voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, quibusdam.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>Overflow: Auto</h2>
+        <p>Полосы прокрутки появляются только когда нужны.</p>
+        <div class="overflow-demo">
+          <div class="overflow-auto">
+            <p>Полосы прокрутки появятся автоматически. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, voluptatum? Ipsum, quam. Quod, quidem. Quisquam, voluptatibus. Quisquam, voluptatibus. Quisquam, voluptatibus. Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, quibusdam. Quisquam, voluptatibus.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>Overflow-X и Overflow-Y</h2>
+        <p>Можно управлять переполнением отдельно по горизонтали и вертикали.</p>
+        <div class="overflow-demo">
+          <div class="overflow-separate">
+            <div class="wide-content">
+              <p>Очень широкий контент который не помещается по ширине и требует горизонтальной прокрутки. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem voluptatum ipsum quam quod quidem quisquam voluptatibus.</p>
+              <p>Еще одна строка текста.</p>
+              <p>И еще одна для демонстрации вертикальной прокрутки.</p>
+              <p>Последняя строка для полноты картины.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>Интерактивная демонстрация</h2>
+        <p>Попробуйте разные значения overflow:</p>
+        <div class="interactive-overflow">
+          <div class="overflow-controls">
+            <button onclick="changeOverflow('visible')" class="demo-btn">Visible</button>
+            <button onclick="changeOverflow('hidden')" class="demo-btn">Hidden</button>
+            <button onclick="changeOverflow('scroll')" class="demo-btn">Scroll</button>
+            <button onclick="changeOverflow('auto')" class="demo-btn">Auto</button>
+          </div>
+          <div class="overflow-demo-container" id="overflowDemo">
+            <h3>Демонстрационный контейнер</h3>
+            <p>Это длинный текст для демонстрации различных значений overflow. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, voluptatum? Ipsum, quam. Quod, quidem. Quisquam, voluptatibus. Quisquam, voluptatibus. Quisquam, voluptatibus.</p>
+            <p>Еще больше текста для создания переполнения. Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis, quibusdam. Quisquam, voluptatibus. Lorem ipsum dolor sit amet.</p>
+            <p>И еще немного контента для полноты демонстрации overflow свойств.</p>
+          </div>
+          <div class="current-overflow" id="currentOverflow">Текущее значение: visible</div>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>Практическое применение</h2>
+        <p>Overflow часто используется для создания модальных окон, выпадающих меню и прокручиваемых областей.</p>
+        <div class="practical-examples">
+          <div class="modal-example">
+            <h3>Модальное окно</h3>
+            <div class="modal-content">
+              <p>Контент модального окна с прокруткой...</p>
+              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+              <p>Еще контент...</p>
+              <p>И еще...</p>
+              <p>Последний абзац.</p>
+            </div>
+          </div>
+          
+          <div class="chat-example">
+            <h3>Чат область</h3>
+            <div class="chat-messages">
+              <div class="message">Привет! Как дела?</div>
+              <div class="message">Все отлично, спасибо!</div>
+              <div class="message">Что делаешь?</div>
+              <div class="message">Изучаю CSS overflow свойство</div>
+              <div class="message">Круто! Удачи в обучении!</div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      function changeOverflow(overflowValue) {
+        const demo = document.getElementById('overflowDemo');
+        const current = document.getElementById('currentOverflow');
+        
+        demo.style.overflow = overflowValue;
+        current.textContent = `Текущее значение: ${overflowValue}`;
+      }
+    </script>
   </body>
 
 </html>

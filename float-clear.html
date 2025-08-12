@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="uk">
+<html lang="zxx">
 
   <head>
     <meta charset="UTF-8">
@@ -10,18 +10,128 @@
 
   <body>
     <nav>
-      <a href="index.html">Блоки та инлайновые элементы</a> |
-      <a href="normalize.html">Normalize CSS</a> |
-      <a href="reset.html">Reset CSS</a> |
-      <a href="display.html">Display & Box-sizing</a> |
-      <a href="float-clear.html">Float & Clear</a> |
-      <a href="overflow.html">Overflow</a> |
-      <a href="positioning.html">Positioning</a>
+      <a href="index.html">🏠 Главная</a>
+      <a href="display.html">📱 Display</a>
+      <a href="float-clear.html">🔄 Float</a>
+      <a href="overflow.html">📦 Overflow</a>
+      <a href="positioning.html">📍 Positioning</a>
+      <a href="project/normalize.html">🔧 Normalize</a>
+      <a href="project/reset.html">⚡ Reset</a>
     </nav>
-    <h1>Float та Clear</h1>
-    <div class="float-left">Блок 1 (float: left)</div>
-    <div class="float-left">Блок 2 (float: left)</div>
-    <div class="clear-both">Блок после clear: both</div>
+
+    <main class="main-content">
+      <section class="intro-section">
+        <h1>🔄 Float & Clear</h1>
+        <p>Свойства <code>float</code> и <code>clear</code> использовались для создания макетов до появления Flexbox и Grid. Они позволяют элементам "плавать" по сторонам контейнера.</p>
+      </section>
+
+      <section class="demo-section">
+        <h2>Float Left</h2>
+        <p>Элементы с <code>float: left</code> прижимаются к левому краю и обтекаются другими элементами.</p>
+        <div class="float-demo">
+          <div class="float-left-demo">Float Left 1</div>
+          <div class="float-left-demo">Float Left 2</div>
+          <p class="float-text">Этот текст обтекает плавающие элементы. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, voluptatum? Ipsum, quam. Quod, quidem. Quisquam, voluptatibus. Quisquam, voluptatibus. Quisquam, voluptatibus.</p>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>Float Right</h2>
+        <p>Элементы с <code>float: right</code> прижимаются к правому краю.</p>
+        <div class="float-demo">
+          <div class="float-right-demo">Float Right 1</div>
+          <div class="float-right-demo">Float Right 2</div>
+          <p class="float-text">Этот текст обтекает плавающие элементы справа. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quidem, voluptatum? Ipsum, quam. Quod, quidem. Quisquam, voluptatibus.</p>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>Clear Property</h2>
+        <p>Свойство <code>clear</code> запрещает обтекание плавающих элементов.</p>
+        <div class="float-demo">
+          <div class="float-left-demo">Float Left</div>
+          <div class="float-right-demo">Float Right</div>
+          <div class="clear-demo">Clear: both - этот элемент не обтекается</div>
+          <p class="float-text">Этот текст идет после элемента с clear: both.</p>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>Проблемы с Float</h2>
+        <p>Плавающие элементы могут вызывать проблемы с высотой контейнера:</p>
+        <div class="float-problem-demo">
+          <h3>Контейнер без clearfix:</h3>
+          <div class="container-without-clearfix">
+            <div class="float-left-demo">Float элемент</div>
+            <div class="float-left-demo">Еще один float</div>
+          </div>
+          
+          <h3>Контейнер с clearfix:</h3>
+          <div class="container-with-clearfix">
+            <div class="float-left-demo">Float элемент</div>
+            <div class="float-left-demo">Еще один float</div>
+          </div>
+        </div>
+      </section>
+
+      <section class="demo-section">
+        <h2>Интерактивная демонстрация</h2>
+        <p>Попробуйте разные значения float и clear:</p>
+        <div class="interactive-float">
+          <div class="float-controls">
+            <div class="control-group">
+              <label>Элемент 1:</label>
+              <button onclick="changeFloat('element1', 'none')" class="demo-btn">None</button>
+              <button onclick="changeFloat('element1', 'left')" class="demo-btn">Left</button>
+              <button onclick="changeFloat('element1', 'right')" class="demo-btn">Right</button>
+            </div>
+            <div class="control-group">
+              <label>Элемент 2:</label>
+              <button onclick="changeFloat('element2', 'none')" class="demo-btn">None</button>
+              <button onclick="changeFloat('element2', 'left')" class="demo-btn">Left</button>
+              <button onclick="changeFloat('element2', 'right')" class="demo-btn">Right</button>
+            </div>
+            <div class="control-group">
+              <label>Clear элемент:</label>
+              <button onclick="changeClear('none')" class="demo-btn">None</button>
+              <button onclick="changeClear('left')" class="demo-btn">Left</button>
+              <button onclick="changeClear('right')" class="demo-btn">Right</button>
+              <button onclick="changeClear('both')" class="demo-btn reset">Both</button>
+            </div>
+          </div>
+          <div class="float-demo-container">
+            <div class="float-element" id="element1">Элемент 1</div>
+            <div class="float-element" id="element2">Элемент 2</div>
+            <div class="clear-element" id="clearElement">Clear элемент</div>
+            <p>Этот текст показывает, как ведут себя элементы с разными значениями float и clear.</p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script>
+      function changeFloat(elementId, floatValue) {
+        const element = document.getElementById(elementId);
+        element.style.float = floatValue;
+        updateStatus();
+      }
+      
+      function changeClear(clearValue) {
+        const element = document.getElementById('clearElement');
+        element.style.clear = clearValue;
+        updateStatus();
+      }
+      
+      function updateStatus() {
+        const element1 = document.getElementById('element1');
+        const element2 = document.getElementById('element2');
+        const clearElement = document.getElementById('clearElement');
+        
+        console.log(`Element 1: float: ${element1.style.float || 'none'}`);
+        console.log(`Element 2: float: ${element2.style.float || 'none'}`);
+        console.log(`Clear element: clear: ${clearElement.style.clear || 'none'}`);
+      }
+    </script>
   </body>
 
 </html>
